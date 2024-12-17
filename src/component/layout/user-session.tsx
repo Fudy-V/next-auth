@@ -3,14 +3,16 @@ import Image from "next/image";
 import React from "react";
 
 const UserSession = ({ session }: { session: Session }) => {
+  const imageUrl = session.user?.image ?? "/user.png";
   return (
     <div className="flex flex-row gap-10 pt-3">
       <div className="">
         <Image
-          src={session.user?.image || "user.png"}
+          src={imageUrl}
           alt={JSON.stringify(session.user?.name)}
           width={100}
-          height={1}
+          height={100}
+          priority
         />
       </div>
       <div>
